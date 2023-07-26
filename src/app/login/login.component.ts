@@ -24,6 +24,7 @@ ngOnInit(): void {
    "password": new FormControl("",[Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
   });
   localStorage.removeItem("token")
+  localStorage.removeItem("user")
 }
 
  submitLogin() {
@@ -36,6 +37,7 @@ ngOnInit(): void {
   else {alert("Ошибка входа")}
 
   if(this.authService.getToken()) {
+    localStorage.setItem("user",JSON.stringify(this.loginForm.value))
     this.router.navigate(["main"])
    }
   // console.log(this.loginForm.value.login)

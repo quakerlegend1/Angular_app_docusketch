@@ -11,7 +11,7 @@
                 <li><a href="#">LOGOUT</a></li>
             </ul>
         </nav>
-        <div class="user-info">Информация о текущем пользователе</div>
+        <div class="user-info">{{"Информация о текущем пользователе: " + (getUserInfo() ?? "неизвестно") }}</div>
         <button class="logout-btn">Logout</button>
     </header>
 

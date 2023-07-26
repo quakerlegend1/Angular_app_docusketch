@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NewsDataService } from './news-data.service';
+import { LoginComponent } from '../login/login.component';
 
 
 
@@ -12,9 +13,15 @@ export class MainPageComponent {
 
   constructor(private news: NewsDataService) { }
 
+  loginComponent = LoginComponent;
+
   newsData = this.news.getData();
 
   selectedCategory: string = "all";
+
+  getUserInfo() {
+    return localStorage.getItem("user")
+  }
 
   filterNews() {
     if (this.selectedCategory === 'all') {
