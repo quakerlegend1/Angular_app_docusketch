@@ -20,11 +20,11 @@
         <h1>Новости</h1>
 
         <div class="filter">
-            <select class="category-filter">
+            <select class="category-filter" [(ngModel)]="selectedCategory" (change)="filterNews()">
                 <option value="all">Все категории</option>
-                <option value="category1">Категория 1</option>
-                <option value="category2">Категория 2</option>
-                <option value="category3">Категория 3</option>
+                <option value="Angular">Angular</option>
+                <option value="React">React</option>
+                <option value="Vue">Vue</option>
             </select>
 
             <input type="text" class="search-input" placeholder="Поиск по названию">
@@ -32,7 +32,7 @@
 
         <div class="news">
             <ul class=news-list>
-                <li *ngFor="let item of newsData" class="news-card">
+                <li *ngFor="let item of filterNews()" class="news-card">
                     <img [src]="item.img" alt="img" class="news-image">
                     <div class="news-content">
                         <h3 class="news-title">{{item.title}}</h3>
