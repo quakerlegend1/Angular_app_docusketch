@@ -6,13 +6,15 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { SearchPipe } from './filter-pipe/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     ReactiveFormsModule
   ],
   providers: [],
+  // exports:[SearchPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,16 +5,15 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">ГЛАВНАЯ</a></li>
+                <li><a routerLink="/main">ГЛАВНАЯ</a></li>
 
                 <li><a href="#">КУПИТЬ ПОДПИСКУ</a></li>
-                <li><a href="#">LOGOUT</a></li>
+                <li><a href="#">СОЗДАТЬ НОВОСТЬ</a></li>
             </ul>
         </nav>
         <div class="user-info">{{"Информация о текущем пользователе: " + (getUserInfo() ?? "неизвестно") }}</div>
-        <button class="logout-btn">Logout</button>
+        <button (click)="logout()" class="logout-btn">Logout</button>
     </header>
-
 
     <main>
         <h1>Новости</h1>
@@ -27,21 +26,24 @@
                 <option value="Vue">Vue</option>
             </select>
 
-            <input type="text" class="search-input" placeholder="Поиск по названию">
+            <input type="text" class="search-input" placeholder="Поиск по названию" [(ngModel)]="searchNews">
         </div>
 
         <div class="news">
             <ul class=news-list>
-                <li *ngFor="let item of filterNews()" class="news-card">
+                <li *ngFor="let item of filterNews() | search: searchNews" class="news-card">
                     <img [src]="item.img" alt="img" class="news-image">
                     <div class="news-content">
                         <h3 class="news-title">{{item.title}}</h3>
                         <p class="news-description">{{item.discription}}</p>
-                        <a href="" class="read-more">Читать далее</a>
+                        <a  class="read-more">Читать далее</a>
                     </div>
                 </li>
 
             </ul>
         </div>
     </main>
+    <footer>
+        
+    </footer>
 </div>
