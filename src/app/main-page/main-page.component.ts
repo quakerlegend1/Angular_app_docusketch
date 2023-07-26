@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NewsDataService } from './news-data.service';
+
+
 
 @Component({
   selector: 'app-main-page',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
+  
+
+  constructor(private news: NewsDataService) {}
+
+  newsData = this.news.getData() ;
 
 }

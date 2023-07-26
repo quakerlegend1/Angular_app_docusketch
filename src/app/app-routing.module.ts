@@ -8,7 +8,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 const routes: Routes = [
   {path: "", redirectTo:"/login", pathMatch:"full"},
   {path: "login", component: LoginComponent},
-  {path: "main", component: MainPageComponent, canActivate:[loginGuardGuard], },
+  {path: "main", component: MainPageComponent }, // canActivate:[loginGuardGuard]
   {path: "**", component: NotFoundPageComponent},
 ];
 
