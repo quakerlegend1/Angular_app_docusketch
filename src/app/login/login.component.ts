@@ -23,6 +23,7 @@ ngOnInit(): void {
    "login": new FormControl("",[Validators.required, Validators.minLength(3)]),
    "password": new FormControl("",[Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
   });
+  localStorage.removeItem("token")
 }
 
  submitLogin() {
@@ -31,10 +32,10 @@ ngOnInit(): void {
     this.pass.nativeElement.style.backgroundColor = "#ffcc00"
   } 
 
-  if(this.loginForm.valid) {alert("successfully logged in. User: " +  JSON.stringify(this.loginForm.value))}
+  if(this.authService.isAuth) {alert("successfully logged in. User: " +  JSON.stringify(this.loginForm.value))}
   else {alert("Ошибка входа")}
 
-  if(this.authService.isAuth) {
+  if(this.authService.getToken()) {
     this.router.navigate(["main"])
    }
   // console.log(this.loginForm.value.login)
