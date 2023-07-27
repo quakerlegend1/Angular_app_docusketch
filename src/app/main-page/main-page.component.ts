@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsDataService } from './news-data.service';
-import { LoginComponent } from '../login/login.component';
+// import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
 
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
 
   constructor(private news: NewsDataService, private router: Router) { }
 
@@ -20,10 +20,17 @@ export class MainPageComponent {
 
   selectedCategory: string = "all";
 
+  ngOnInit(): void {
+
+  }
+
   logout() {
     alert("Вы совершили выход из аккаунта!")
     this.router.navigate(["/login"])
+  }
 
+  cleanNewsStorage() {
+    localStorage.removeItem("news")
   }
 
   getUserInfo() {
@@ -43,6 +50,5 @@ export class MainPageComponent {
     }
     return []
   }
-
 
 }

@@ -1,0 +1,19 @@
+.not_found {
+    text-align: center;
+    margin-top: 200px;
+    font-size: 18px;
+}
+
+.back {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.back:hover {
+    background-color: #1d1212af;
+}

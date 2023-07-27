@@ -5,13 +5,14 @@
         </div>
         <nav>
             <ul>
-                <li><a routerLink="/main">ГЛАВНАЯ</a></li>
-
-                <li><a href="#">КУПИТЬ ПОДПИСКУ</a></li>
-                <li><a href="#">СОЗДАТЬ НОВОСТЬ</a></li>
+                <li><a>ГЛАВНАЯ</a></li>
+                <li><a>КУПИТЬ ПОДПИСКУ</a></li>
+                <li><a routerLink="create-news">СОЗДАТЬ НОВОСТЬ</a></li>
             </ul>
         </nav>
-        <div class="user-info">{{"Информация о текущем пользователе: " + (getUserInfo() ?? "неизвестно") }}</div>
+        <div class="user-info">{{"Текущий пользователь: " + (getUserInfo() ?? "неизвестно") }}</div>
+        <button class="delete-user-news" (click)="cleanNewsStorage()">Удалить все пользовательские новости(after
+            refresh)</button>
         <button (click)="logout()" class="logout-btn">Logout</button>
     </header>
 
@@ -36,7 +37,7 @@
                     <div class="news-content">
                         <h3 class="news-title">{{item.title}}</h3>
                         <p class="news-description">{{item.description}}</p>
-                        <a [routerLink]="[item.link, item.id]" class="read-more">Читать далее</a>
+                        <a [routerLink]="['/main/news', item.id]" class="read-more">Читать подробнее</a>
                     </div>
                 </li>
 
@@ -44,6 +45,7 @@
         </div>
     </main>
     <footer>
-        
+
     </footer>
+
 </div>

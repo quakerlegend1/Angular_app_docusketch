@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SearchPipe } from './filter-pipe/search.pipe';
 import { SingleNewsComponent } from './SingleNewsPage/single-news/single-news.component';
+import { UserNewsComponent } from './createNews/user-news/user-news.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SingleNewsComponent } from './SingleNewsPage/single-news/single-news.co
     MainPageComponent,
     NotFoundPageComponent,
     SearchPipe,
-    SingleNewsComponent
+    SingleNewsComponent,
+    UserNewsComponent
   ],
   imports: [
     BrowserModule,
