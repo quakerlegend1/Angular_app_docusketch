@@ -20,10 +20,10 @@ export class MainPageComponent {
 
   selectedCategory: string = "all";
 
-   logout() {
+  logout() {
     alert("Вы совершили выход из аккаунта!")
     this.router.navigate(["/login"])
-    
+
   }
 
   getUserInfo() {
@@ -34,7 +34,7 @@ export class MainPageComponent {
     if (this.selectedCategory === 'all') {
       return this.newsData
     } else if (this.selectedCategory === 'Angular') {
-      
+
       return this.newsData.filter((item) => item.category === "Angular")
     } else if (this.selectedCategory === 'React') {
       return this.newsData.filter((item) => item.category === "React")

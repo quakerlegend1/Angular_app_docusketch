@@ -1,11 +1,26 @@
-<div class="news-page">
-    <header>
-        <h1>{{currTitle}}</h1>
-        <p>Дата публикации: 31 января 2024 г.</p>
-    </header>
+<div class="single-news">
+    <div class="news-page">
+        <header>
+            <h1>{{currTitle}}</h1>
+            <p>{{"Дата и время просмотра новости: " + date}}</p>
+        </header>
 
-    <div class="content" >
-        <img [src]="currImg" alt="News Image">
-        <p>{{currDesc}}</p>
+        <div class="content">
+            <img [src]="currImg" alt="logo">
+            <p>{{currDesc}}</p>
+        </div>
+
+        <div class="comments">
+            <h2>Оставить комментарий</h2>
+            <textarea [(ngModel)]="comment" placeholder="Введите ваш комментарий"></textarea>
+            <button type="submit" (click)="addComment()">Отправить</button>
+        </div>
     </div>
+
+    <section>
+        <h2>Ваши комментарии:</h2>
+        <ul>
+            <li *ngFor="let item of comments"><i>{{item}}</i></li>
+        </ul>
+    </section>
 </div>
