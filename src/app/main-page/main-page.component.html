@@ -35,8 +35,8 @@
                     <img [src]="item.img" alt="img" class="news-image">
                     <div class="news-content">
                         <h3 class="news-title">{{item.title}}</h3>
-                        <p class="news-description">{{item.discription}}</p>
-                        <a  class="read-more">Читать далее</a>
+                        <p class="news-description">{{item.description}}</p>
+                        <a [routerLink]="[item.link, item.id]" class="read-more">Читать далее</a>
                     </div>
                 </li>
 

@@ -4,11 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { loginGuardGuard } from './guard/login-guard.guard';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { SingleNewsComponent } from './SingleNewsPage/single-news/single-news.component';
 
 const routes: Routes = [
   {path: "", redirectTo:"/login", pathMatch:"full"},
   {path: "login", component: LoginComponent},
   {path: "main", component: MainPageComponent }, // canActivate:[loginGuardGuard]
+  {path: "main/news/:id", component: SingleNewsComponent },
   {path: "**", component: NotFoundPageComponent},
 ];
 

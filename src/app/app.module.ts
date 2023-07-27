@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SearchPipe } from './filter-pipe/search.pipe';
+import { SingleNewsComponent } from './SingleNewsPage/single-news/single-news.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SearchPipe } from './filter-pipe/search.pipe';
     LoginComponent,
     MainPageComponent,
     NotFoundPageComponent,
-    SearchPipe
+    SearchPipe,
+    SingleNewsComponent
   ],
   imports: [
     BrowserModule,

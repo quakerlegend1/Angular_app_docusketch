@@ -20,9 +20,9 @@ export class MainPageComponent {
 
   selectedCategory: string = "all";
 
-  async logout() {
+   logout() {
     alert("Вы совершили выход из аккаунта!")
-    await this.router.navigate(["/login"])
+    this.router.navigate(["/login"])
     
   }
 
