@@ -100,3 +100,18 @@ section ul li {
   word-wrap: break-word;
 
 }
+
+.back {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: fixed;
+  transition: background-color 0.5s;
+}
+
+.back:hover {
+  background-color: #080808e0;
+}

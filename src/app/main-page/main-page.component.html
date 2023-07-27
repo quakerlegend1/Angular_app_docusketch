@@ -5,13 +5,13 @@
         </div>
         <nav>
             <ul>
-                <li><a>ГЛАВНАЯ</a></li>
+                <li><a routerLink="/main">ГЛАВНАЯ</a></li>
                 <li><a>КУПИТЬ ПОДПИСКУ</a></li>
                 <li><a routerLink="create-news">СОЗДАТЬ НОВОСТЬ</a></li>
             </ul>
         </nav>
         <div class="user-info">{{"Текущий пользователь: " + (getUserInfo() ?? "неизвестно") }}</div>
-        <button class="delete-user-news" (click)="cleanNewsStorage()">Удалить все пользовательские новости(after
+        <button class="delete-user-news" (click)="cleanNewsStorage()">Удалить все пользовательские новости(after page
             refresh)</button>
         <button (click)="logout()" class="logout-btn">Logout</button>
     </header>
