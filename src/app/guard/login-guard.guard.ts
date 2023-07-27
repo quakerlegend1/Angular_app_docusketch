@@ -11,5 +11,4 @@ export const loginGuardGuard: CanActivateFn = (route, state) => {
   } 
     router.navigate(["login"])
     return false
-  
 };

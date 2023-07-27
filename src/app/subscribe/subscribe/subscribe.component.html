@@ -1,0 +1,35 @@
+<button class="back" routerLink="/main">Назад на главную</button>
+<div class="subscribe">
+    <h1>Выберите платную подписку</h1>
+    
+    <div class="subscriptions">
+      <div class="subscription" [ngClass]="{ 'active': selectedSubscription === 'basic' }" (click)="selectSubscription('basic')">
+        <h2>Базовая подписка</h2>
+        <p><strong>Цена:</strong> $9.99/месяц</p>
+      </div>
+      <div class="subscription" [ngClass]="{ 'active': selectedSubscription === 'premium' }" (click)="selectSubscription('premium')">
+        <h2>Премиум подписка</h2>
+        <p><strong>Цена:</strong> $19.99/месяц</p>
+      </div>
+    </div>
+    
+    <div class="subscription-details" *ngIf="selectedSubscription">
+      <h2>{{ selectedSubscription === 'basic' ? 'Базовая подписка' : 'Премиум подписка' }}</h2>
+      
+      <h3>Условия покупки:</h3>
+      <ul>
+        <li>{{selectedSubscription === 'basic' ? 'Оплата через СБП' : 'Оплата через любой банк'}}</li>
+        <li>{{selectedSubscription === 'basic' ? 'Успеть до конца текущего месяца' : 'Успеть оформить в течение года'}}</li>
+        <li>{{selectedSubscription === 'basic' ? 'Только для граждан СНГ' : 'Из любой точки мира при наличии карты XXY'}}</li>
+      </ul>
+      
+      <h3>Плюшки:</h3>
+      <ul>
+        <li>{{selectedSubscription === 'basic' ? 'Скидка на 2-ой месяц' : 'Скидка на 50% на год'}}</li>
+        <li>{{selectedSubscription === 'basic' ? 'Доступ к кинотеатру XY' : 'Безлимитный роуминг'}}</li>
+        <li>{{selectedSubscription === 'basic' ? '5$ на счёт сразу' : '100$ на счёт через полгода'}}</li>
+      </ul>
+      
+      <button class="buy-button">Купить</button>
+    </div>
+  </div>

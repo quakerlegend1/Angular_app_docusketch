@@ -1,9 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../authService/auth.service';
-
-
 
 @Component({
   selector: 'login',
@@ -11,36 +9,36 @@ import { AuthService } from '../authService/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
- @ViewChild("pass") pass!: ElementRef<HTMLInputElement>
+  @ViewChild("pass") pass!: ElementRef<HTMLInputElement>
 
- loginForm!: FormGroup;
+  loginForm!: FormGroup;
   currentAuthValue!: object;
 
- constructor(private router: Router, private authService: AuthService,) {}
- 
-ngOnInit(): void {
-  this.loginForm = new FormGroup({
-   "login": new FormControl("",[Validators.required, Validators.minLength(3)]),
-   "password": new FormControl("",[Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
-  });
-  localStorage.removeItem("token")
-  localStorage.removeItem("user")
-}
+  constructor(private router: Router, private authService: AuthService,) { }
 
- submitLogin() {
-  this.authService.isLoggedIn(this.loginForm.value)
-  if(this.loginForm.get("password")?.invalid && this.loginForm.get("password")?.touched) {
-    this.pass.nativeElement.style.backgroundColor = "#ffcc00"
-  } 
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      "login": new FormControl("", [Validators.required, Validators.minLength(3)]),
+      "password": new FormControl("", [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
+    });
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+  }
 
-  if(this.authService.isAuth) {alert("successfully logged in. User: " +  JSON.stringify(this.loginForm.value))}
-  else {alert("Ошибка входа")}
+  submitLogin() {
+    this.authService.isLoggedIn(this.loginForm.value)
+    if (this.loginForm.get("password")?.invalid && this.loginForm.get("password")?.touched) {
+      this.pass.nativeElement.style.backgroundColor = "#ffcc00"
+    }
 
-  if(this.authService.getToken()) {
-    localStorage.setItem("user",JSON.stringify(this.loginForm.value))
-    this.router.navigate(["main"])
-   }
-  // console.log(this.loginForm.value.login)
- }
+    if (this.authService.isAuth) { alert("successfully logged in. User: " + JSON.stringify(this.loginForm.value)) }
+    else { alert("Ошибка входа") }
+
+    if (this.authService.getToken()) {
+      localStorage.setItem("user", JSON.stringify(this.loginForm.value))
+      this.router.navigate(["main"])
+    }
+    // console.log(this.loginForm.value.login)
+  }
 
 }

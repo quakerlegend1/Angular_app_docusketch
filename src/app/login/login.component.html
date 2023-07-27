@@ -1,25 +1,26 @@
 <div class="login_container">
 
-    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-      <div class="login_title">
-        <h2>LOGIN</h2>
-        <h6>Please enter your login and password</h6>
-      </div>
-  
-      <div class="login_input">
-        <label for="login">Логин</label>
-        <input formControlName="login" type="text" id="login" name="login" placeholder="введите ваш логин" required/>
-        <p class="login_valid" *ngIf="this.loginForm.get('login')?.invalid && this.loginForm.get('login')?.touched ">login is required</p>
-      </div>
-  
-      <div class="login_input">
-        <label for="password">Пароль</label>
-        <input formControlName="password" #pass type="password" id="password" name="password"
-          placeholder="введите ваш пароль" required />
-        <p class="login_valid" *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched">password is required(min length=8)</p>
-      </div>
-  
-      <button class="login_btn" type="submit">Войти</button>
-  
-    </form>
-  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <div class="login_title">
+      <h2>LOGIN</h2>
+      <h6>Please enter your login and password</h6>
+    </div>
+
+    <div class="login_input">
+      <label for="login">Логин</label>
+      <input formControlName="login" type="text" id="login" name="login" placeholder="введите ваш логин" required />
+      <p class="login_valid" *ngIf="this.loginForm.get('login')?.invalid && this.loginForm.get('login')?.touched ">login
+        is required</p>
+    </div>
+
+    <div class="login_input">
+      <label for="password">Пароль</label>
+      <input formControlName="password" #pass type="password" id="password" name="password"
+        placeholder="введите ваш пароль" required />
+      <p class="login_valid" *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched">
+        password is required(min length=8)</p>
+    </div>
+
+    <button class="login_btn" type="submit">Войти</button>
+  </form>
+</div>
